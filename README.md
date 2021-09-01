@@ -2,6 +2,7 @@
 1. [Login]
 2. [Add new note]
 3. [List of all previous notes added by user]
+3. [Delete an existing note]
 
 **Test Credentials**:
 email:- admin@example.com

@@ -99,7 +99,7 @@ export default class extends React.Component {
         if (this.state.user) {
             return (
                 <p className="lead text-center mt-5 mb-5">
-                    <div className="container box-shadow p-2">
+                    <div className="container box-shadow p-4">
                         <div className="col-4 d-inline-block align-top">
                             <ul type="none" className="border-right text-start p-0">
                                 {this.state.notes.map((note) => (
@@ -121,7 +121,7 @@ export default class extends React.Component {
 
                         <Form method="post" onSubmit={this.handleSubmit} className="col-7 d-inline-block offset-1">
                             <FormGroup>
-                                <Label className="text-start" sm={4}>Title:</Label>
+                                <Label className="text-start m-0 pt-0" sm={4}>Title:</Label>
                                 <Col>
                                     <Input
                                         name="title"
