@@ -1,6 +1,6 @@
-import Users from "models/Users"
-import { users } from "lib/data"
-import dbConnect from 'lib/dbConnect'
+const Users = require("models/Users")
+const { users } = require("lib/data")
+const dbConnect = require("lib/dbConnect")
 
 const seed = async () => {
     try {
@@ -13,4 +13,4 @@ const seed = async () => {
     } catch (error) {}
 }
 
-export default seed
+module.exports = seed;

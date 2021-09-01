@@ -29,8 +29,7 @@ export default async function handler(req, res) {
 
         case 'DELETE':
             try {
-                console.log(req.body);
-                Notes.findOneAndDelete(req.body)
+                await Notes.findByIdAndRemove(req.query.id)
 
                 res.status(200).json({ success: true })
             } catch (error) {

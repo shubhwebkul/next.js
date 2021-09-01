@@ -28,7 +28,7 @@ export default class extends React.Component {
         })
         .catch(error => {
             this.setState({
-                alertText: 'Invalid credentials',
+                alertText: 'Something went wrong!',
                 alertStyle: 'alert-danger',
             })
         })
@@ -75,18 +75,23 @@ export default class extends React.Component {
         })
         .catch(error => {
             this.setState({
-                alertText: 'Invalid credentials',
+                alertText: 'Something went wrong!',
                 alertStyle: 'alert-danger',
             })
         })
     }
 
     removeNote(id) {
-        var notes = [...this.state.notes];
-        notes = notes.filter(note => note.id != id)
-
-        this.setState({
-            notes,
+        debugger
+        axios.delete(`/api/notes?id=${id}`)
+        .then(response => {
+            this.getNotes();
+        })
+        .catch(error => {
+            this.setState({
+                alertText: 'Something went wrong!',
+                alertStyle: 'alert-danger',
+            })
         })
     }
   
@@ -98,13 +103,13 @@ export default class extends React.Component {
                         <div className="col-4 d-inline-block align-top">
                             <ul type="none" className="border-right text-start p-0">
                                 {this.state.notes.map((note) => (
-                                    <div key={note.id}>
+                                    <div key={note._id}>
                                         <li className="border-bottom px-3 py-3 fs-14">
                                             <div className="col-10 d-inline-block">
                                                 <h6 className="m-0">{note.title}</h6>
                                                 <span>{note.description}</span>
                                             </div>
-                                            <div className="col-2 d-inline-block align-top cursor-pointer" onClick={() => this.removeNote(note.id)}>
+                                            <div className="col-2 d-inline-block align-top cursor-pointer" onClick={() => this.removeNote(note._id)}>
                                                 X
                                             </div>
                                         </li>
