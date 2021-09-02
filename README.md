@@ -49,8 +49,9 @@ npm run dev
 yarn install
 yarn dev
 
-### Compiles and minifies for production
-```
+# Compiles and minifies for production
+
 npm run build
+
 ```
 
